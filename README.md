@@ -9,7 +9,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 使用者唯一識別碼（Primary Key，自動遞增） |
+| id | INTEGER | 使用者識別碼 |
 | username | TEXT | 使用者登入帳號（Unique） |
 | password | TEXT | 使用者加密密碼（Hash 雜湊值） |
 | registered_at | TEXT | 帳號註冊時間（ISO 8601 格式字符串） |
@@ -20,7 +20,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 紀錄唯一識別碼（Primary Key） |
+| id | INTEGER | 紀錄唯一識別碼 |
 | user_id | INTEGER | 使用者 ID（Foreign Key，對應 users.id） |
 | login_time | TEXT | 使用者登入時間 |
 | logout_time | TEXT | 使用者登出時間（若異常離線則可為空） |
@@ -33,7 +33,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 資料唯一識別碼（Primary Key） |
+| id | INTEGER | 資料唯一識別碼 |
 | pool_id | INTEGER | 養殖池塘/水族箱編號 |
 | temp | REAL | 實測水溫（攝氏度 °C） |
 | psu | REAL | 實測鹽度（PSU） |
@@ -69,7 +69,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 預測唯一識別碼（Primary Key） |
+| id | INTEGER | 預測唯一識別碼 |
 | pool_id | INTEGER | 對應之養殖池塘編號 |
 | forecast_time | TEXT | 預期目標時間點（未來預測時間） |
 | temp_pred | REAL | TimesFM 模型預測水溫值 |
@@ -84,7 +84,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 檢測紀錄唯一識別碼（Primary Key） |
+| id | INTEGER | 檢測紀錄唯一識別碼 |
 | pool_id | INTEGER | 對應之養殖池塘編號 |
 | timestamp | TEXT | 資料品質檢測執行時間點 |
 | fetch_failed | INTEGER | 邊緣端資料抓取失敗旗標（0: 正常, 1: 失敗） |
@@ -100,7 +100,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 警報唯一識別碼（Primary Key） |
+| id | INTEGER | 警報唯一識別碼 |
 | pool_id | INTEGER | 發生異常之養殖池塘編號 |
 | sensor_type | TEXT | 觸發警報之感測器指標類型（如 temp, ph, do） |
 | value | REAL | 觸發當時之實際感測數值 |
@@ -115,7 +115,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 日誌唯一識別碼（Primary Key） |
+| id | INTEGER | 日誌唯一識別碼 |
 | event_type | TEXT | 系統事件類型（如：'Hardware_Disconnect', 'Database_Error'） |
 | description | TEXT | 錯誤日誌詳細描述資訊 |
 | start_time | TEXT | 系統異常事件起始時間 |
@@ -127,7 +127,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 設定識別碼（Primary Key） |
+| id | INTEGER | 設定識別碼 |
 | user_id | INTEGER | 關聯之管理員 ID（Foreign Key） |
 | enabled | INTEGER | 全域通知開關（0: 停用, 1: 啟用） |
 | cooldown_minutes | INTEGER | 警報重複發送之冷卻時間（分鐘，避免通知轟炸） |
@@ -140,7 +140,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 分析唯一識別碼（Primary Key） |
+| id | INTEGER | 分析唯一識別碼 |
 | pool_id | INTEGER | 觀測之養殖池塘編號 |
 | timestamp | TEXT | 行為特徵分析時間戳記 |
 | active_ratio | REAL | 畫面中活動蝦隻數量之比例（0.0 ~ 1.0） |
@@ -154,7 +154,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 密度分析唯一識別碼（Primary Key） |
+| id | INTEGER | 密度分析唯一識別碼 |
 | pool_id | INTEGER | 觀測之養殖池塘編號 |
 | timestamp | TEXT | 密度量測時間戳記 |
 | mean_occ | REAL | 蝦隻實例分割遮罩之平均畫面佔有率（%） |
@@ -167,7 +167,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 長度量測唯一識別碼（Primary Key） |
+| id | INTEGER | 長度量測唯一識別碼 |
 | pool_id | INTEGER | 觀測之養殖池塘編號 |
 | timestamp | TEXT | 長度估算時間戳記 |
 | min_len | REAL | 經骨架細化量測出之最小個體長度（cm） |
@@ -180,7 +180,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 綜合分析流水號（Primary Key） |
+| id | INTEGER | 綜合分析流水號 |
 | pool_id | INTEGER | 觀測之養殖池塘編號 |
 | timestamp | TEXT | 資料統整與報表生成時間點 |
 | avg_active_ratio | REAL | 整合週期內之平均活動比例 |
@@ -197,7 +197,7 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| key | TEXT | 全域系統設定項目名稱（Unique Index，如 'api_url'） |
+| key | TEXT | 全域系統設定項目名稱 |
 | value | TEXT | 設定項目對應之具體數值或配置文字 |
 
 <br>
@@ -206,8 +206,8 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| pool_id | INTEGER | 養殖池塘編號（Primary Key） |
-| settings | TEXT | 該池專屬之進階硬體與排程參數（JSON 結構文字） |
+| pool_id | INTEGER | 養殖池塘編號 |
+| settings | TEXT | 該池專屬之進階硬體與排程參數 |
 
 <br>
 
@@ -215,8 +215,8 @@
 
 | 欄位名稱 | 資料型別 | 說明 |
 | :--- | :--- | :--- |
-| id | INTEGER | 效能流水號（Primary Key） |
-| metric_name | TEXT | 系統資源指標名稱（如 'CPU_Usage', 'DB_Query_Time'） |
+| id | INTEGER | 效能流水號 |
+| metric_name | TEXT | 系統資源指標名稱 |
 | value | REAL | 效能觀測實測數值 |
 | timestamp | TEXT | 效能監控資料記錄時間 |
 
