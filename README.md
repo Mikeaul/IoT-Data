@@ -89,7 +89,7 @@
 | timestamp | TEXT | 資料品質檢測執行時間點 |
 | fetch_failed | INTEGER | 邊緣端資料抓取失敗旗標（0: 正常, 1: 失敗） |
 | history_missing | INTEGER | 歷程歷史資料缺失旗標（0: 完備, 1: 遺失） |
-| prediction_missing | INTEGER | AI 預測排程中斷或缺失旗標（0: 正常, 1: 缺失） |
+| prediction_missing | INTEGER | TimesFM預測排程中斷或缺失旗標（0: 正常, 1: 缺失） |
 | anomaly | INTEGER | 整體資料流是否判定為嚴重異常 |
 
 ---
